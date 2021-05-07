@@ -30,6 +30,7 @@ class Blockchain(object):
     def __init__(self, difficulty):
         self.difficulty = difficulty
         self.blocks = []
+        
 
 #Creation de notre premier block
         NotrepremierBlock = Block(0, None, datetime.now(), "Notre premier block")
@@ -46,7 +47,7 @@ class Blockchain(object):
         self.blocks.append(block)
 
 #Verifier si le block est valide
-    def isFirstBlockValid(self):
+    def PremierBlockValid(self):
         firstBlock = self.blocks[0]
 
         if firstBlock.index != 0:
@@ -61,7 +62,7 @@ class Blockchain(object):
         return True
 
 #Verifier si la blockchain est valide
-    def isBlockValid(self, block, previousBlock):
+    def BlockValid(self, block, previousBlock):
         if previousBlock.index+1 != block.index:
             return False
 
@@ -73,14 +74,14 @@ class Blockchain(object):
         
         return True
 
-    def isBlockchainValid(self):
-        if not self.isFirstBlockValid():
+    def BlockchainValid(self):
+        if not self.PremierBlockValid():
             return False
         
         for i in range(1, len(self.blocks)):
             previousBlock = self.blocks[i-1]
             block = self.blocks[i]
-            if not self.isBlockValid(block, previousBlock):
+            if not self.BlockValid(block, previousBlock):
                 return False 
 
         return True
@@ -102,11 +103,11 @@ if __name__ == '__main__':
     blockn3 = bchain.newBlock("Fourth Block")
     bchain.addBlock(blockn3)
 
-    print("Super la blockchain est valide:", bchain.isBlockchainValid())
+    print("Super la blockchain est valide:", bchain.BlockchainValid())
 
     bchain.affiche()
 
 else:
-    print("Désolé la blockchain n'est pas valide:", bchain.isBlockchainValid())
+    print("Désolé la blockchain n'est pas valide:", bchain.BlockchainValid())
 
 

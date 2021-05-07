@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+    <head>
+       <style>
+           ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+form {
+    border: 1px solid #1A33FF;
+    background: #ecf5fc;
+    padding: 40px 50px 45px;
+}
+
+.form-control:focus {
+    border-color: #000;
+    box-shadow: none;
+}
+
+label {
+    font-weight: 600;
+}
+
+
+
+       </style> 
+        <title>Blockchain</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/vendor.css">
+      </head>
+
+
+
+    <body>
+        <ul>
+          <li><a href="#creer">Block</a></li>
+          <li><a href="#all">Tous nos blocs</a></li>
+        </ul>
+
+
+
+            <form action="{{url_for('index')}}" method="POST">
+
+        
+
+                <div class="form-group">
+                    <label>Index</label>
+                    <input type="int" class="form-control" name="index" id="index">
+
+                </div>
+
+                <div class="form-group">
+                    <label>PreviousHash</label>
+                    <input type="text" class="form-control" name="PreviousHash" id="PreviousHash">
+                </div>
+
+                <div class="form-group">
+                    <label>Timestamp</label>
+                    <input type="int" class="form-control" name="Timestamp" id="Timestamp">
+                </div>
+
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type='text' class="form-control" name="Data" id="Data" >
+                </div>
+
+                <div class="form-group">
+                    <label>Hash</label>
+                    <input type="text" class="form-control" name="Hash" id="Hash">
+                </div>
+
+                <div class="form-group">
+                    <label>Nonce</label>
+                    <input type="int" class="form-control" name="Nonce" id="Nonce">
+                </div>
+
+                <div class="container">
+                   
+                    
+
+            <input type="submit" name="send" value="Creer un Block" class="btn btn-dark btn-block">
+        </div>
+
+        <form action="{{url_for('all_bloc')}}">
+            <button> All Bloc</button>
+        </form>
+
+        
+            
+
+    <body>
+
+</html>
